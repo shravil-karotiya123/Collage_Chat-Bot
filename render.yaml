@@ -1,0 +1,16 @@
+# Render Infrastructure Manifest for College Bot Backend API
+services:
+  - type: web
+    name: college-bot-backend
+    env: python
+    region: singapore # or oregon / frankfurt
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: FRONTEND_URL
+        value: https://*.vercel.app

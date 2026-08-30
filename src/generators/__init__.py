@@ -1,0 +1,3 @@
+"""
+Document generators package.
+"""

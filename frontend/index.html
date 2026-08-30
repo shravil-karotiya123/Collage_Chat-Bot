@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusAI - Intelligent College Assistant</title>
+  <meta name="description" content="Sovereign AI-powered College Assistant for instant course details, admission eligibility, placement statistics, and campus FAQs." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="/src/index.css" />
+</head>
+<body>
+  <div id="app" class="app-wrapper">
+    <!-- Header Bar -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>CampusAI Assistant</h1>
+          <span class="brand-badge" id="backend-status-badge">Render Live API</span>
+        </div>
+      </div>
+      
+      <!-- Top Navigation Tabs -->
+      <nav class="header-nav">
+        <button class="nav-tab active" id="tab-chat" data-tab="chat">💬 Live Chat</button>
+        <button class="nav-tab" id="tab-courses" data-tab="courses">🎓 Courses</button>
+        <button class="nav-tab" id="tab-admissions" data-tab="admissions">📋 Admissions</button>
+        <button class="nav-tab" id="tab-placements" data-tab="placements">📈 Placements</button>
+      </nav>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="main-container">
+      <!-- Left Sidebar: Quick Actions & Specs -->
+      <aside class="sidebar-panel">
+        <div class="panel-card info-card">
+          <h2 class="card-title">🚀 Quick Inquiries</h2>
+          <p class="card-subtitle">Click any option to ask the assistant immediately:</p>
+          <div class="quick-chips" id="quick-chips-container">
+            <button class="chip-btn" data-query="What B.Tech courses are offered?">🎓 B.Tech Offerings</button>
+            <button class="chip-btn" data-query="What is the admission deadline?">📅 Admission Deadline</button>
+            <button class="chip-btn" data-query="Show placement stats and top recruiters">📊 Placement Package</button>
+            <button class="chip-btn" data-query="Tell me about hostel and campus facilities">🏢 Hostel & Gym</button>
+            <button class="chip-btn" data-query="Are scholarships available?">💰 Scholarships & Aid</button>
+          </div>
+        </div>
+
+        <div class="panel-card config-card">
+          <h2 class="card-title">⚙️ Deployment Config</h2>
+          <div class="endpoint-box">
+            <label for="render-api-input">Render Backend URL:</label>
+            <input type="text" id="render-api-input" placeholder="https://college-bot-backend.onrender.com" />
+            <button id="save-endpoint-btn" class="save-btn">Save API Endpoint</button>
+          </div>
+          <div class="status-indicator">
+            <span class="dot" id="status-dot"></span>
+            <span id="status-text">Checking Backend Health...</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center: Dynamic Tab View (Chat / Information) -->
+      <section class="content-panel">
+        <!-- Tab 1: Chat Interface -->
+        <div class="tab-view active" id="view-chat">
+          <div class="chat-messages" id="chat-messages">
+            <div class="message system-msg">
+              <div class="avatar">🤖</div>
+              <div class="bubble">
+                <p><strong>Welcome to CampusAI Assistant!</strong></p>
+                <p>I am your smart college guide. Ask me anything about engineering courses, fees, admission procedures, scholarships, hostel life, or placements!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input Controls -->
+          <form class="chat-input-area" id="chat-form">
+            <input type="text" id="user-input" placeholder="Ask anything about admissions, courses, placements..." autocomplete="off" required />
+            <button type="submit" id="send-btn" class="send-btn">
+              <span>Send</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Tab 2: Information Views -->
+        <div class="tab-view" id="view-info">
+          <div class="info-view-content" id="info-view-content">
+            <!-- Dynamic info content injected here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Deployed with ❤️ on <strong>Render</strong> (Backend API) & <strong>Vercel</strong> (Frontend UI)</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

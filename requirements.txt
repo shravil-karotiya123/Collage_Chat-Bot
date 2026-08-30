@@ -1,0 +1,9 @@
+# Sovereign On-Premise Agentic AI Workbench - Base Dependencies
+# Python 3.11 Compatible
+
+# Configuration & Settings Management
+pydantic>=2.7.0,<3.0.0
+pydantic-settings>=2.2.0,<3.0.0
+
+# Environment File Support
+python-dotenv>=1.0.1,<2.0.0
