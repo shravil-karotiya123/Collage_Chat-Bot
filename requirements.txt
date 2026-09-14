@@ -1,9 +1,31 @@
-# Sovereign On-Premise Agentic AI Workbench - Base Dependencies
-# Python 3.11 Compatible
+# Sovereign On-Premises Agentic AI Workbench - Base Dependencies
+# Python 3.10+ Compatible
+
+# Web Framework & API Server
+fastapi>=0.110.0,<1.0.0
+uvicorn[standard]>=0.28.0,<1.0.0
+python-multipart>=0.0.9
 
 # Configuration & Settings Management
 pydantic>=2.7.0,<3.0.0
 pydantic-settings>=2.2.0,<3.0.0
-
-# Environment File Support
 python-dotenv>=1.0.1,<2.0.0
+
+# Local AI Inference & Orchestration
+ollama>=0.2.0
+langgraph>=0.1.0
+
+# Vector Database & Offline Embeddings
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+torch>=2.0.0
+
+# OCR Text & Table Extraction Engine
+paddleocr>=2.7.0
+pillow>=10.0.0
+
+# Local Analytical Telemetry Engine
+duckdb>=0.9.0
+
+# Security, Audit & Cryptographic Attestation
+cryptography>=42.0.0

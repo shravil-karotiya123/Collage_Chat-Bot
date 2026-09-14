@@ -1,0 +1,12 @@
+MRPL Approval Note & System Specification
+
+Project Name: MRPL AI Workbench
+Department: Information Technology
+Project Code: MRPL-AI-001
+Purpose: Sovereign on-premise AI automation for confidential refinery operations.
+
+System Configuration:
+- General Language & Document Manager: Qwen 2.5 7B
+- Coding & Debugging Manager: DeepSeek Coder 6.7B
+- OCR & Multimodal Vision Manager: MiniCPM-V 8B
+- Storage Policy: 100% On-Premise Air-Gapped Workstation

@@ -1,0 +1,2 @@
+Task: Write a Python function `validate_mrpl_email(email: str) -> bool` that validates whether an email address belongs to the MRPL enterprise domain (user@mrpl.co.in or user@mrpl.in).
+Include comprehensive unit tests and execute in local contained sandbox.

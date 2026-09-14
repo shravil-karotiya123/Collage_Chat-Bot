@@ -1,0 +1,13 @@
+====================================================
+MRPL REFINERY STANDARD OPERATING PROCEDURE (SOP)
+====================================================
+SOP Code: MRPL-SOP-502
+Title: Non-Destructive Inspection & Pressure Equipment Approval Governance
+
+1. PURPOSE
+Defines mandatory procedures for inspecting, evaluating, and documenting pressure equipment across MRPL refineries.
+
+2. GOVERNANCE REQUIREMENT
+- All technical inspection findings must include reference identifier MRPL-AI-DEMO-001.
+- Official Approval Notes require review by the Chief Technical Inspector before execution.
+- Workflows must maintain 100% air-gapped sovereign execution.

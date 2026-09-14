@@ -1,116 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CampusAI - Intelligent College Assistant</title>
-  <meta name="description" content="Sovereign AI-powered College Assistant for instant course details, admission eligibility, placement statistics, and campus FAQs." />
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="/src/index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MRPL Sovereign AI Workbench</title>
+  <link rel="icon" type="image/svg+xml" href="/static/assets/logo.svg">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="stylesheet" href="/static/css/components.css">
+  <link rel="stylesheet" href="/static/css/responsive.css">
 </head>
-<body>
-  <div id="app" class="app-wrapper">
-    <!-- Header Bar -->
-    <header class="app-header">
-      <div class="header-brand">
-        <div class="brand-logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <h1>CampusAI Assistant</h1>
-          <span class="brand-badge" id="backend-status-badge">Render Live API</span>
+<body data-theme="dark">
+  <div id="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="/static/assets/logo.svg" alt="MRPL Logo">
+        <div>
+          <h1>MRPL AI Workbench</h1>
+          <small style="color: var(--text-muted); font-size: 0.7rem;">Sovereign Platform v1.0</small>
         </div>
       </div>
-      
-      <!-- Top Navigation Tabs -->
-      <nav class="header-nav">
-        <button class="nav-tab active" id="tab-chat" data-tab="chat">💬 Live Chat</button>
-        <button class="nav-tab" id="tab-courses" data-tab="courses">🎓 Courses</button>
-        <button class="nav-tab" id="tab-admissions" data-tab="admissions">📋 Admissions</button>
-        <button class="nav-tab" id="tab-placements" data-tab="placements">📈 Placements</button>
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-view="dashboard">
+          <span class="nav-icon">📊</span> Dashboard
+        </a>
+        <a href="#chat" class="nav-item" data-view="chat">
+          <span class="nav-icon">💬</span> Unified Chat
+        </a>
+        <a href="#documents" class="nav-item" data-view="documents">
+          <span class="nav-icon">📁</span> Documents
+        </a>
+        <a href="#rag" class="nav-item" data-view="rag">
+          <span class="nav-icon">📚</span> Knowledge Base
+        </a>
+        <a href="#ocr" class="nav-item" data-view="ocr">
+          <span class="nav-icon">👁️</span> OCR & Vision
+        </a>
+        <a href="#agents" class="nav-item" data-view="agents">
+          <span class="nav-icon">🤖</span> Agent Tasks
+        </a>
+        <a href="#approvals" class="nav-item" data-view="approvals">
+          <span class="nav-icon">🛡️</span> Approvals
+        </a>
+        <a href="#audit" class="nav-item" data-view="audit">
+          <span class="nav-icon">📜</span> Audit Trail
+        </a>
+        <a href="#health" class="nav-item" data-view="health">
+          <span class="nav-icon">⚙️</span> System Health
+        </a>
       </nav>
-    </header>
+      <div class="sidebar-footer">
+        100% Offline Air-Gapped Workstation
+      </div>
+    </aside>
 
-    <!-- Main Content Grid -->
-    <main class="main-container">
-      <!-- Left Sidebar: Quick Actions & Specs -->
-      <aside class="sidebar-panel">
-        <div class="panel-card info-card">
-          <h2 class="card-title">🚀 Quick Inquiries</h2>
-          <p class="card-subtitle">Click any option to ask the assistant immediately:</p>
-          <div class="quick-chips" id="quick-chips-container">
-            <button class="chip-btn" data-query="What B.Tech courses are offered?">🎓 B.Tech Offerings</button>
-            <button class="chip-btn" data-query="What is the admission deadline?">📅 Admission Deadline</button>
-            <button class="chip-btn" data-query="Show placement stats and top recruiters">📊 Placement Package</button>
-            <button class="chip-btn" data-query="Tell me about hostel and campus facilities">🏢 Hostel & Gym</button>
-            <button class="chip-btn" data-query="Are scholarships available?">💰 Scholarships & Aid</button>
-          </div>
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <!-- Topbar Header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h2 id="page-title" class="page-title">Dashboard</h2>
         </div>
-
-        <div class="panel-card config-card">
-          <h2 class="card-title">⚙️ Deployment Config</h2>
-          <div class="endpoint-box">
-            <label for="render-api-input">Render Backend URL:</label>
-            <input type="text" id="render-api-input" placeholder="https://college-bot-backend.onrender.com" />
-            <button id="save-endpoint-btn" class="save-btn">Save API Endpoint</button>
+        <div class="topbar-right">
+          <div id="offline-status-badge" class="offline-badge">
+            <span class="status-dot"></span> AIR-GAPPED / OFFLINE
           </div>
-          <div class="status-indicator">
-            <span class="dot" id="status-dot"></span>
-            <span id="status-text">Checking Backend Health...</span>
-          </div>
+          <button id="validate-offline-btn" class="btn btn-secondary btn-sm">Validate Posture</button>
+          <button id="theme-toggle-btn" class="theme-toggle-btn">☀️ Light</button>
         </div>
-      </aside>
+      </header>
 
-      <!-- Center: Dynamic Tab View (Chat / Information) -->
-      <section class="content-panel">
-        <!-- Tab 1: Chat Interface -->
-        <div class="tab-view active" id="view-chat">
-          <div class="chat-messages" id="chat-messages">
-            <div class="message system-msg">
-              <div class="avatar">🤖</div>
-              <div class="bubble">
-                <p><strong>Welcome to CampusAI Assistant!</strong></p>
-                <p>I am your smart college guide. Ask me anything about engineering courses, fees, admission procedures, scholarships, hostel life, or placements!</p>
-              </div>
+      <!-- View Panels -->
+
+      <!-- 1. Dashboard View -->
+      <section id="dashboard-view" class="content-panel active">
+        <div id="dashboard-content">
+          <div class="card"><p class="card-subtitle">Loading system telemetry...</p></div>
+        </div>
+      </section>
+
+      <!-- 2. Unified Chat View -->
+      <section id="chat-view" class="content-panel">
+        <div class="chat-container">
+          <div id="chat-messages-container" class="chat-messages">
+            <div class="message-bubble assistant">
+              Hello! I am the MRPL Sovereign AI Assistant. How can I assist you with refinery operations, engineering code, or document analysis today?
             </div>
           </div>
-
-          <!-- Chat Input Controls -->
-          <form class="chat-input-area" id="chat-form">
-            <input type="text" id="user-input" placeholder="Ask anything about admissions, courses, placements..." autocomplete="off" required />
-            <button type="submit" id="send-btn" class="send-btn">
-              <span>Send</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </button>
-          </form>
-        </div>
-
-        <!-- Tab 2: Information Views -->
-        <div class="tab-view" id="view-info">
-          <div class="info-view-content" id="info-view-content">
-            <!-- Dynamic info content injected here -->
+          <div class="chat-input-area">
+            <input type="text" id="chat-input" class="form-input" placeholder="Type your query here... (e.g. What is CDU-1 operating pressure threshold?)" style="flex: 1;">
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); cursor: pointer;">
+              <input type="checkbox" id="chat-force-rag"> Force RAG
+            </label>
+            <button id="chat-send-btn" class="btn btn-primary">Send Prompt</button>
+            <button id="chat-clear-btn" class="btn btn-secondary">Clear</button>
           </div>
         </div>
       </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="app-footer">
-      <p>Deployed with ❤️ on <strong>Render</strong> (Backend API) & <strong>Vercel</strong> (Frontend UI)</p>
-    </footer>
+      <!-- 3. Documents View -->
+      <section id="documents-view" class="content-panel">
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <span class="card-title">Upload Document for Processing & RAG</span>
+          </div>
+          <form id="document-upload-form">
+            <div class="form-group">
+              <label class="form-label" for="doc-file-input">Select Document File (PDF, DOCX, TXT, MD, CSV, XLSX):</label>
+              <input type="file" id="doc-file-input" class="form-input" accept=".pdf,.docx,.txt,.md,.csv,.xlsx">
+            </div>
+            <button type="submit" id="doc-upload-btn" class="btn btn-primary">Upload & Process Document</button>
+          </form>
+          <div id="upload-status-result" style="margin-top: 16px;"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Uploaded & Indexed Documents</span>
+          </div>
+          <div id="documents-list-container">
+            <p class="card-subtitle">Loading document catalog...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Knowledge Base / RAG View -->
+      <section id="rag-view" class="content-panel">
+        <div id="rag-status-header" style="margin-bottom: 24px;"></div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <span class="card-title">Grounded Knowledge Base Vector Query</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rag-query-input">Target Knowledge Base Question:</label>
+            <input type="text" id="rag-query-input" class="form-input" placeholder="e.g. Summarize emergency shutdown protocol for CDU-1">
+          </div>
+          <div class="form-group" style="max-width: 200px;">
+            <label class="form-label" for="rag-topk-select">Top-K Passage Limit:</label>
+            <select id="rag-topk-select" class="form-select">
+              <option value="3" selected>3 Chunks</option>
+              <option value="5">5 Chunks</option>
+              <option value="10">10 Chunks</option>
+            </select>
+          </div>
+          <button id="rag-query-btn" class="btn btn-primary">Query Knowledge Base</button>
+          <div id="rag-query-result" style="margin-top: 16px;"></div>
+        </div>
+      </section>
+
+      <!-- 5. OCR & Vision View -->
+      <section id="ocr-view" class="content-panel">
+        <div id="ocr-health-panel" style="margin-bottom: 24px;"></div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Engineering Diagram & Visual Document Inspection</span>
+          </div>
+          <form id="ocr-upload-form">
+            <div class="form-group">
+              <label class="form-label" for="ocr-file-input">Select Technical Image or Scanned Document (PNG, JPG, TIFF, PDF):</label>
+              <input type="file" id="ocr-file-input" class="form-input" accept="image/*,.pdf">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ocr-prompt-input">Optional Vision Prompt Instructions:</label>
+              <input type="text" id="ocr-prompt-input" class="form-input" placeholder="Analyze engineering diagram and extract key text labels">
+            </div>
+            <button type="submit" id="ocr-submit-btn" class="btn btn-primary">Run OCR & Visual Inspection</button>
+          </form>
+          <div id="ocr-result-panel" style="margin-top: 20px;"></div>
+        </div>
+      </section>
+
+      <!-- 6. Agent Tasks View -->
+      <section id="agents-view" class="content-panel">
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <span class="card-title">Create Autonomous Agentic Task</span>
+          </div>
+          <form id="agent-task-form">
+            <div class="form-group">
+              <label class="form-label" for="agent-query-input">Task Goal / Operational Prompt:</label>
+              <input type="text" id="agent-query-input" class="form-input" placeholder="e.g. Extract CDU-1 pressure readings and draft approval report">
+            </div>
+            <button type="submit" id="agent-submit-btn" class="btn btn-primary">Plan & Create Agent Task</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Agent Task Execution Trajectories</span>
+          </div>
+          <div id="agent-tasks-container">
+            <p class="card-subtitle">Loading agent tasks...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Approvals View -->
+      <section id="approvals-view" class="content-panel">
+        <div id="approvals-container">
+          <p class="card-subtitle">Loading pending governance approvals...</p>
+        </div>
+      </section>
+
+      <!-- 8. Audit Trail View -->
+      <section id="audit-view" class="content-panel">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Audit Trajectory & Security Event Log</span>
+          </div>
+          <div id="audit-container">
+            <p class="card-subtitle">Loading audit log records...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. System Health View -->
+      <section id="health-view" class="content-panel">
+        <div id="health-page-content">
+          <div class="card"><p class="card-subtitle">Querying consolidated system health telemetry...</p></div>
+        </div>
+      </section>
+    </div>
   </div>
 
-  <script type="module" src="/src/main.js"></script>
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Local JavaScript Modules -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/state.js"></script>
+  <script src="/static/js/router.js"></script>
+  <script src="/static/js/utils.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <script src="/static/js/chat.js"></script>
+  <script src="/static/js/documents.js"></script>
+  <script src="/static/js/rag.js"></script>
+  <script src="/static/js/ocr.js"></script>
+  <script src="/static/js/agents.js"></script>
+  <script src="/static/js/approvals.js"></script>
+  <script src="/static/js/audit.js"></script>
+  <script src="/static/js/app.js"></script>
 </body>
 </html>

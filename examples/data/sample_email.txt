@@ -1,0 +1,13 @@
+From: chief.inspector@mrpl.co.in
+To: refinery.operations@mrpl.co.in
+Subject: Approval Request for Unit 4 Inspection Report (MRPL-AI-DEMO-001)
+
+Dear Operations Team,
+
+Please review the attached inspection findings for Refinery Unit 4 Heat Exchanger E-401.
+The NDT inspection recorded a wall thickness of 14.2 mm, which is well above the minimum safety limit of 12.0 mm.
+An official Approval Note has been generated via MRPL AI Workbench (Task Ref: MRPL-AI-DEMO-001).
+
+Regards,
+Chief Technical Inspector
+MRPL Refinery Mangalore

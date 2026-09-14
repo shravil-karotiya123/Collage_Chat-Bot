@@ -1,0 +1,20 @@
+====================================================
+MRPL REFINERY UNIT 4 — TECHNICAL INSPECTION REPORT
+====================================================
+Document Reference: MRPL-AI-DEMO-001
+Date: August 31, 2026
+Facility: MRPL Mangalore Refinery Unit 4 Heat Exchanger Loop
+
+1. EXECUTIVE SUMMARY
+Annual non-destructive testing (NDT) inspection conducted on Heat Exchanger E-401 casing and piping loops.
+
+2. OBSERVATIONS & MEASUREMENTS
+- Heat Exchanger Shell Wall Thickness: 14.2 mm (Nominal: 15.0 mm, Minimum Allowable: 12.0 mm).
+- Operating Pressure: 12.4 bar (Design Limit: 25.0 bar).
+- Surface Condition: Minor surface oxidation observed on secondary bypass flange outer casing.
+- Relief Valve PRV-401: Calibration verified compliant with SOP MRPL-SOP-502.
+
+3. RECOMMENDATIONS & APPROVAL GOVERNANCE
+- Schedule routine quarterly maintenance during planned turnaround.
+- Approver: Chief Technical Inspector
+- Inspection Status: APPROVED (MRPL-AI-DEMO-001 compliant).
